@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Feedback form</title>
+      <script type="module" crossorigin src="/vanilla-app-template/2-form.js"></script>
+      <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/modulepreload-polyfill-B5Qt9EMX.js">
+      <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/styles-BDJt59uy.css">
+    </head>
+    <body>
+        <a class="button back-link" href="./index.html">Back</a>
+        <main class="form-page">
+            <form class="feedback-form" autocomplete="off" novalidate>
+                <label>
+                    Email
+                    <input type="email" name="email" autofocus aria-describedby="email-error" />
+                    <span class="form-error" id="email-error">Please enter a valid email address</span>
+                </label>
+                <label>
+                    Message
+                    <textarea name="message" rows="8" aria-describedby="message-error"></textarea>
+                    <span class="form-error" id="message-error">Message is required</span>
+                </label>
+                <button class="button" type="submit">Submit</button>
+            </form>
+        </main>
+
+        <div class="form-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+            <div class="form-modal-content">
+                <p id="modal-title">Fill please all fields</p>
+                <button class="button form-modal-close" type="button">Close</button>
+            </div>
+        </div>
+
+    </body>
+</html>
