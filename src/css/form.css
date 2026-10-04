@@ -1,0 +1,108 @@
+.form-page {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.feedback-form {
+    display: flex;
+    width: min(100%, 408px);
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    border-radius: 8px;
+    background: var(--color-white);
+    box-shadow: var(--shadow-form);
+}
+
+.feedback-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--color-text);
+}
+
+.form-error {
+    display: none;
+    color: var(--color-error);
+    font-size: 12px;
+}
+
+.form-error.is-visible {
+    display: block;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font: inherit;
+}
+
+.feedback-form input {
+    height: 40px;
+}
+
+.feedback-form button {
+    width: 95px;
+    min-height: 40px;
+    height: 40px;
+    padding: 0;
+    margin-top: 8px;
+}
+
+.feedback-form textarea {
+    height: 80px;
+    resize: none;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    border-color: var(--color-primary);
+    outline: 2px solid var(--color-focus-outline);
+}
+
+.feedback-form .input-error {
+    border-color: var(--color-error);
+}
+
+.form-modal[hidden] {
+    display: none;
+}
+
+.form-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--color-modal-backdrop);
+}
+
+.form-modal-content {
+    display: flex;
+    width: min(100%, 360px);
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 24px;
+    border-radius: 8px;
+    background: var(--color-white);
+    box-shadow: var(--shadow-form);
+    text-align: center;
+}
+
+.form-modal-content p {
+    margin: 0;
+    color: var(--color-text);
+}
+
+.form-modal-close {
+    width: 95px;
+}

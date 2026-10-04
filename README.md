@@ -1,89 +1,74 @@
-# Vanilla App Template
+# Advanced JavaScript Homework 1
 
-A minimal Vite starter for vanilla JavaScript projects. Use it as a clean base for landing pages, small websites, and
-multi-page applications.
+Multi-page vanilla JavaScript homework project with an image gallery and a feedback form.
 
-## Create a project from this template
+## Project structure
 
-1. Open the repository on GitHub and click **Use this template**.
+```text
+src/
+├── css/
+│   ├── base.css
+│   ├── form.css
+│   ├── gallery.css
+│   ├── home.css
+│   ├── reset.css
+│   └── styles.css
+├── js/
+    ├── 1-gallery.js
+    └── 2-form.js
+├── 1-gallery.html
+├── 2-form.html
+└── index.html
+```
 
-    ![The Use this template button](./assets/template-step-1.png)
+## What it does
 
-2. Enter a name for your new repository and click **Create repository from template**.
+### Image gallery
 
-    ![Creating a repository from the template](./assets/template-step-2.png)
+- Renders nine gallery cards from the `images` array.
+- Builds the gallery markup dynamically in JavaScript.
+- Uses [SimpleLightbox](https://simplelightbox.js.org/) installed through npm.
+- Opens the full-size image when a gallery link is clicked.
+- Displays image descriptions from the `alt` attribute below the lightbox image.
+- Shows captions after a 250 ms delay.
+- Provides keyboard navigation and the default lightbox controls without custom gallery click handlers.
+
+### Feedback form
+
+- Stores `email` and `message` in `localStorage` under `feedback-form-state`.
+- Saves trimmed field values on every `input` event.
+- Restores saved values after a page reload.
+- Validates that both fields are filled and that the email has a valid format.
+- Highlights invalid fields and displays field-level error messages.
+- Shows `Fill please all fields` in a modal when the form is incomplete.
+- Logs the completed `formData` object to the console on successful submission.
+- Clears the form state from `localStorage` after successful submission.
 
 ## Getting started
 
-Make sure that the LTS version of [Node.js](https://nodejs.org/) is installed, then run:
+Make sure that [Node.js](https://nodejs.org/) is installed, then run:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local URL shown by Vite, usually [`http://localhost:5173`](http://localhost:5173). The development server
-reloads the page whenever you save a source file.
+Open the local URL shown by Vite. The available pages are:
 
-## Project structure
-
-```text
-src/
-├── index.html       # Main HTML entry point
-├── js/
-│   └── main.js      # JavaScript entry point
-├── css/
-│   ├── styles.css   # Main stylesheet
-│   ├── reset.css    # Small browser reset
-│   ├── base.css     # Global page styles
-│   └── starter.css  # Optional starter screen styles
-├── partials/
-│   └── starter.html # Optional starter screen markup
-└── img/
-    └── vite-logo.png # Image assets
-```
-
-The starter screen is kept in `partials/starter.html` and `css/starter.css`, so you can remove both files and the
-related `<load>` line from `index.html` when you are ready to start building your own page. Add other pages, components,
-styles, and resources under `src` as your project grows. Vite automatically includes HTML entry points located directly
-in `src` during the production build.
+- `/` - home page;
+- `/1-gallery.html` - image gallery;
+- `/2-form.html` - feedback form.
 
 ## Available commands
 
-| Command           | Description                           |
-| ----------------- | ------------------------------------- |
-| `npm run dev`     | Start the development server.         |
-| `npm run build`   | Create a production build in `dist`.  |
-| `npm run preview` | Preview the production build locally. |
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | Start the development server.        |
+| `npm run build`   | Create a production build in `dist`. |
+| `npm run preview` | Preview the production build.        |
 
-The [vanilla-app-template.code-workspace](./vanilla-app-template.code-workspace) file includes VS Code tasks for all
-three commands. Open it in VS Code and run them through **Terminal > Run Task**.
+## Check
 
-## Deploy to GitHub Pages
-
-The repository includes a GitHub Actions workflow for building and deploying the project to the `gh-pages` branch. The
-workflow runs after changes are pushed to `main`.
-
-![Deployment workflow](./assets/how-it-works.png)
-
-Before the first deployment, update the `--base` value in `package.json` with your repository name:
-
-```json
-"build": "vite build --base=/<REPOSITORY_NAME>/"
-```
-
-In the repository settings, open **Settings > Pages** and select the `gh-pages` branch as the deployment source.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-GitHub Actions may require write permissions for the workflow. Open **Settings > Actions > General**, enable read and
-write permissions, and save the change.
-
-![GitHub Actions permissions](./assets/gh-actions-perm-1.png)
-
-![GitHub Actions workflow permissions](./assets/gh-actions-perm-2.png)
-
-The deployment status is displayed next to the commit in GitHub. Open **Details** to inspect the workflow log if a
-deployment fails.
-
-![Deployment status](./assets/deploy-status.png)
+Open `1-gallery.html` and click any image to test the lightbox. Open `2-form.html`, enter form data, reload the page,
+and verify that the values are restored. Submit an incomplete form to see the validation modal, or submit both valid
+fields to see the object in the browser console and clear the saved state.
